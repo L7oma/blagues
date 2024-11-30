@@ -276,33 +276,46 @@
             <h2>Envoyer une Blague</h2>
             <input type="text" id="userName" placeholder="Votre Nom">
             <textarea id="userJoke" placeholder="Votre Blague"></textarea>
+
+            <!-- Choix de la catégorie -->
+            <select id="jokeCategory">
+                <option value="Nokate Maghribia">Nokate Maghribia</option>
+                <option value="Blagues Françaises">Blagues Françaises</option>
+            </select>
+
             <button onclick="sendJoke()">Envoyer via WhatsApp</button>
             <button class="close-modal-button" onclick="closeModal()">Fermer</button>
         </div>
     </div>
 
     <!-- ICÔNE WHATSAPP -->
-    <a href="https://wa.me/212608975435?text=Salut!%20J'ai%20une%20blague%20à%20vous%20envoyer!%20Voici%20ma%20blague%20:%20" class="whatsapp-icon">
+    <div class="whatsapp-icon" onclick="openModal()">
         <i class="fab fa-whatsapp"></i>
-    </a>
+    </div>
 
     <script>
-        // Fonction pour ouvrir la modal
+        // Ouvrir la modale
         function openModal() {
             document.getElementById("whatsappModal").style.display = "block";
         }
 
-        // Fonction pour fermer la modal
+        // Fermer la modale
         function closeModal() {
             document.getElementById("whatsappModal").style.display = "none";
         }
 
-        // Fonction pour envoyer la blague via WhatsApp
+        // Envoyer la blague via WhatsApp
         function sendJoke() {
             var name = document.getElementById("userName").value;
             var joke = document.getElementById("userJoke").value;
+            var category = document.getElementById("jokeCategory").value;
+
             if (name && joke) {
-                var message = "Salut!%20Voici%20ma%20blague:%20" + joke + "%20-%20Envoyé%20par%20" + name;
+                var message = "Blague partagée via le site des Blagues\n\n" +
+                              "Nom : " + name + "\n" +
+                              "Catégorie : " + category + "\n" +
+                              "Blague : " + joke;
+
                 var whatsappURL = "https://wa.me/212608975435?text=" + encodeURIComponent(message);
                 window.open(whatsappURL, "_blank");
                 closeModal();
