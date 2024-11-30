@@ -26,7 +26,7 @@
         header {
             background-color: #FF9800;  /* Orange clair */
             color: white;
-            padding: 30px 0;
+            padding: 15px 0; /* Hauteur réduite */
             text-align: center;
         }
 
@@ -52,10 +52,10 @@
         .announce-card {
             background-color: #FF9800; /* Orange clair */
             color: white;
-            padding: 40px;
+            padding: 30px; /* Espacement ajusté */
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 600px; /* Largeur maximale pour les grands écrans */
+            max-width: 400px; /* Largeur réduite */
             margin: 0 auto;
             text-align: center;
             transition: transform 0.3s;
@@ -223,54 +223,22 @@
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        /* BOUTONS EN LIGNE */
-        .buttons-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .buttons-container button {
-            margin: 10px;
-            flex: 1 1 30%;
-            max-width: 200px;
-        }
-
-        /* MEDIA QUERY POUR LES PETITS ÉCRANS */
-        @media (max-width: 768px) {
-            .announce-card {
-                padding: 30px;
-                max-width: 90%;  /* Réduit la largeur de la carte pour les petits appareils */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .announce-card {
-                padding: 20px;
-                max-width: 100%;  /* Prend toute la largeur disponible pour les très petits écrans */
-            }
-        }
     </style>
 </head>
 <body>
     <!-- HEADER -->
     <header>
-        <div class="container">
-            <h1>Bienvenue sur le site des Blagues</h1>
-            <p>Découvrez des blagues marocaines, françaises et des vidéos gags amusantes !</p>
-        </div>
+        <h1>Bienvenue sur le site des Blagues</h1>
+        <p>Découvrez des blagues marocaines, françaises et des vidéos gags amusantes !</p>
     </header>
 
     <!-- CONTENT SECTION -->
     <section class="main-content">
-        <div class="container">
-            <h2>Partagez votre blague avec nous !</h2>
-            <div class="announce-card">
-                <h3>Vous avez une blague à partager ?</h3>
-                <p>Nous serions ravis de l'ajouter à notre collection ! Cliquez sur le bouton ci-dessous pour l'envoyer via WhatsApp.</p>
-                <button onclick="openModal()">Envoyer votre blague</button>
-            </div>
+        <h2>Partagez votre blague avec nous !</h2>
+        <div class="announce-card">
+            <h3>Vous avez une blague à partager ?</h3>
+            <p>Nous serions ravis de l'ajouter à notre collection ! Cliquez sur le bouton ci-dessous pour l'envoyer via WhatsApp.</p>
+            <button onclick="openModal()">Envoyer votre blague</button>
         </div>
     </section>
 
@@ -283,9 +251,7 @@
 
     <!-- FOOTER FIXE SANS MENU -->
     <footer>
-        <div class="footer-container">
-            <p>© 2024 Site des Blagues | Site Développé par M.Seddik Elidrissi</p>
-        </div>
+        <p>© 2024 Site des Blagues | Site Développé par M.Seddik Elidrissi</p>
     </footer>
 
     <!-- MODAL WHATSAPP -->
@@ -305,29 +271,23 @@
     </div>
 
     <script>
-        // Ouvrir le modal
         function openModal() {
             document.getElementById('whatsappModal').style.display = "block";
         }
 
-        // Fermer le modal
         function closeModal() {
             document.getElementById('whatsappModal').style.display = "none";
         }
 
-        // Envoyer la blague via WhatsApp
         function sendJoke() {
             const name = document.getElementById('userName').value;
             const joke = document.getElementById('userJoke').value;
             const whatsappLink = `https://wa.me/212608975435?text=Nom:%20${name}%0ABlague:%20${joke}`;
             window.open(whatsappLink, '_blank');
-            closeModal();
         }
 
-        // Rediriger vers WhatsApp
         function openWhatsapp() {
-            const whatsappLink = "https://wa.me/212608975435?text=Je%20veux%20partager%20une%20blague!";
-            window.open(whatsappLink, '_blank');
+            window.open("https://wa.me/212608975435", "_blank");
         }
     </script>
 </body>
