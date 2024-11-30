@@ -194,6 +194,23 @@
             outline: none;
         }
 
+        .modal-content select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .modal-content select:focus {
+            border-color: #FF9800;
+            outline: none;
+        }
+
         .modal-content button {
             background-color: #FF9800;
             color: white;
@@ -273,16 +290,16 @@
     <!-- MODAL WHATSAPP -->
     <div id="whatsappModal" class="modal">
         <div class="modal-content">
-            <h2>Envoyer une Blague</h2>
-            <input type="text" id="userName" placeholder="Votre Nom">
-            <textarea id="userJoke" placeholder="Votre Blague"></textarea>
-
-            <!-- Choix de la catégorie -->
+            <h2>Envoyer votre blague via WhatsApp</h2>
+            <label for="userName">Votre Nom :</label>
+            <input type="text" id="userName" placeholder="Entrez votre nom" />
+            <label for="userJoke">Votre Blague :</label>
+            <textarea id="userJoke" placeholder="Entrez votre blague" rows="4"></textarea>
+            <label for="jokeCategory">Catégorie :</label>
             <select id="jokeCategory">
                 <option value="Nokate Maghribia">Nokate Maghribia</option>
                 <option value="Blagues Françaises">Blagues Françaises</option>
             </select>
-
             <button onclick="sendJoke()">Envoyer via WhatsApp</button>
             <button class="close-modal-button" onclick="closeModal()">Fermer</button>
         </div>
