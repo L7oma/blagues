@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blagues Marocaines</title>
+  <title>Nokate Maghribia</title>
   <style>
     * {
       margin: 0;
@@ -11,19 +11,17 @@
       box-sizing: border-box;
     }
 
-    body {
+    body, html {
+      height: 100%;
       font-family: Arial, sans-serif;
       background-color: #f4f4f9;
       color: #333;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      overflow-x: hidden;
-      overflow-y: scroll;
     }
 
     header {
-      background-color: #FF5733;
+      background-color: #ff6600; /* Orange */
       color: white;
       padding: 20px;
       text-align: center;
@@ -37,10 +35,10 @@
     }
 
     .advertisement {
-      background-color: #FF9800;
+      background-color: #e65c00; /* Orange foncé */
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 10px;
       font-size: 14px;
       font-weight: bold;
       margin-top: 80px;
@@ -52,62 +50,38 @@
       max-width: 900px;
     }
 
-    .home-button {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 10px;
-      background-color: transparent;
-      cursor: pointer;
-      width: 50px;
-      height: 50px;
-      text-align: center;
-      display: block;
-    }
-
-    .home-button svg {
-      width: 100%;
-      height: 100%;
-      fill: #333;
-    }
-
-    .home-text {
-      text-align: center;
-      font-size: 12px;
-      color: #333;
-      font-weight: normal;
-      line-height: 1;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
+    /* Zone défilable entre header et footer */
     .scrollable-content {
       margin-top: 20px;
       margin-bottom: 80px;
-      overflow-y: auto;
       padding: 20px;
-      height: 100vh;
-      position: relative;
+      overflow-y: scroll;  /* Permet de faire défiler sans afficher la barre */
+      flex-grow: 1;
+      height: calc(100vh - 160px); /* Hauteur de la zone défilable entre header et footer */
     }
 
-    /* Carte de blagues stylisée */
+    .scrollable-content::-webkit-scrollbar {
+      display: none; /* Masque la barre de défilement */
+    }
+
     .card {
       background-color: #fff;
-      border-radius: 15px;  /* Arrondi plus léger */
+      border-radius: 15px;
       padding: 25px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Ombre légère */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: all 0.3s ease;
-      border: 1px solid #ddd;  /* Bordure fine et discrète */
+      border: 1px solid #ddd;
     }
 
     .card:hover {
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);  /* Ombre un peu plus marquée au survol */
-      transform: translateY(-5px);  /* Léger effet de soulèvement */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
     }
 
     .blague-text {
-      font-size: 18px;
+      font-size: 16px; /* Taille réduite de la police */
       line-height: 1.6;
       color: #555;
       margin-bottom: 15px;
@@ -123,11 +97,11 @@
     }
 
     footer {
-      background-color: #FF5733;
+      background-color: #ff6600; /* Orange */
       color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
+      padding: 15px; /* Réduit la hauteur du footer */
+      font-size: 12px; /* Réduit la taille de la police */
       position: fixed;
       bottom: 0;
       left: 0;
@@ -138,22 +112,12 @@
       margin: 0;
     }
 
-    .scrollable-content::-webkit-scrollbar {
-      width: 0px;
-      background: transparent;
-    }
-
-    .scrollable-content {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
   </style>
 </head>
 <body>
 
   <header>
-    Blagues Marocaines
+    Nokate Maghribia
   </header>
 
   <div class="advertisement">
@@ -161,13 +125,7 @@
     <p>Pour plus d'infos, visitez notre <a href="https://www.exemple.com" target="_blank">site partenaire</a></p>
   </div>
 
-  <a href="index.html" class="home-button">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M12 3L2 12h4v8h12v-8h4z"/>
-    </svg>
-  </a>
-  <div class="home-text">Retour à l'accueil</div>
-
+  <!-- Zone défilable -->
   <div class="scrollable-content">
     <!-- Carte de blague 1 -->
     <div class="card">
@@ -195,7 +153,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2024 Blagues Marocaines | Site Développé par M.Seddik Elidrissi</p>
+    <p>&copy; 2024 Nokate Maghribia | Site Développé par M.Seddik Elidrissi</p>
   </footer>
 
 </body>
