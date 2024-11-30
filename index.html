@@ -113,8 +113,6 @@
         }
 
         .buttons-container button {
-            background-color: #FF9800;  /* Orange clair */
-            color: white;
             padding: 12px 25px;
             margin: 8px;
             border: none;
@@ -126,6 +124,24 @@
 
         .buttons-container button:hover {
             background-color: #FB8C00;
+        }
+
+        /* BOUTON "Nokate Maghribia" */
+        .buttons-container button:first-child {
+            background-color: #E65100;  /* Orange foncé */
+            color: white;
+        }
+
+        /* BOUTON "Blagues Françaises" */
+        .buttons-container button:nth-child(2) {
+            background-color: #2196F3;  /* Bleu */
+            color: white;
+        }
+
+        /* BOUTON "Vidéos Gags" */
+        .buttons-container button:nth-child(3) {
+            background-color: #00BCD4;  /* Turquoise */
+            color: white;
         }
 
         /* MODAL STYLE */
@@ -244,7 +260,7 @@
 
     <!-- SECTION DES BOUTONS AVANT LE FOOTER -->
     <section class="buttons-container">
-        <button onclick="window.location.href = 'blagues-marocaines.html';">Blagues Marocaines</button>
+        <button onclick="window.location.href = 'blagues-marocaines.html';">Nokate Maghribia</button>
         <button onclick="window.location.href = 'blagues-francaises.html';">Blagues Françaises</button>
         <button onclick="window.location.href = 'videos-gags.html';">Vidéos Gags</button>
     </section>
@@ -272,22 +288,32 @@
 
     <script>
         function openModal() {
-            document.getElementById('whatsappModal').style.display = "block";
+            document.getElementById("whatsappModal").style.display = "block";
         }
 
         function closeModal() {
-            document.getElementById('whatsappModal').style.display = "none";
+            document.getElementById("whatsappModal").style.display = "none";
         }
 
         function sendJoke() {
-            const name = document.getElementById('userName').value;
-            const joke = document.getElementById('userJoke').value;
-            const whatsappLink = `https://wa.me/212608975435?text=Nom:%20${name}%0ABlague:%20${joke}`;
-            window.open(whatsappLink, '_blank');
+            var userName = document.getElementById("userName").value;
+            var userJoke = document.getElementById("userJoke").value;
+
+            if (userName && userJoke) {
+                var message = encodeURIComponent(userName + " vous envoie une blague : " + userJoke);
+                var url = "https://wa.me/?text=" + message;
+                window.open(url, "_blank");
+                closeModal();
+            } else {
+                alert("Veuillez entrer votre nom et votre blague.");
+            }
         }
 
         function openWhatsapp() {
-            window.open("https://wa.me/212608975435", "_blank");
+            var phoneNumber = "+212608975435"; // Le numéro WhatsApp mis à jour.
+            var message = "Salut ! Voici ma blague : "; // Message d'introduction
+            var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+            window.open(url, "_blank");
         }
     </script>
 </body>
